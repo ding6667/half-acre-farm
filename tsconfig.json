@@ -1,0 +1,30 @@
+{
+  /* Base configuration. Do not edit this field. */
+  "extends": "./temp/tsconfig.cocos.json",
+
+  /*
+   * S0（工程初始化）：开启 TypeScript 严格模式。
+   * 规范约束：
+   *  - strict: true 全家桶生效，禁用隐式 any；
+   *  - 团队约定：禁止使用 @ts-ignore / @ts-expect-error 兜底（本配置无法机械禁止，
+   *    以代码评审约束执行）；
+   *  - "cc" 模块声明路径由 temp/tsconfig.cocos.json 提供（Creator 打开项目后自动生成）；
+   *  - 本文件服务于 IDE / CI 的 tsc --noEmit 检查；Creator 编辑器内的脚本编译
+   *    以引擎内置转译流程为准，不受本文件影响。
+   */
+  "compilerOptions": {
+    /* 跳过引擎 .d.ts 声明文件检查（引擎声明与 strict 不完全兼容，Creator 项目标准做法；
+       业务代码 assets/scripts/** 仍全量严格检查） */
+    "skipLibCheck": true,
+
+    /* ---- strict 全家桶 ---- */
+    "strict": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "forceConsistentCasingInFileNames": true
+  }
+}
